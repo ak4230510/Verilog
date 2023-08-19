@@ -1,0 +1,35 @@
+module demux1to2 (out, in, sel);
+  input sel,in;
+  output [1:0] out;
+   
+ 
+  assign out[1]=in&&~sel;
+  assign out[0]=in&&sel;
+  
+endmodule
+
+module demux_tb();
+  reg s,i;
+  wire [1:0] ot;
+  demux1to2 dut(.sel(s), .in(i), .out(ot));
+  
+  
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
+  end
+  
+  initial begin
+    i=1;
+    s=0;
+    #5
+    i=1;
+    s=1;
+    #5
+    i=0;
+    s=0;
+    #5
+    i=0;
+    s=1;
+  end
+endmodule
