@@ -7,7 +7,7 @@ module ALU(  input [7:0] Operand1,Operand2,
   input [3:0] CFlags,
   output  [7:0] Out,
   output  [3:0] Flags 
-// the Z (zero), C (carry), S (sign),O (overflow) bits, from MSB to LSB, connected to status register 
+
    );
   wire Z,S,O;
   reg CarryOut;
@@ -92,7 +92,7 @@ assign Out = (Sel==1)? In1: In2;
 endmodule
 
 
-// Verilog project: Verilog code for microcontroller
+
 
 module PMem( input clk,
    input E, // Enable port
@@ -217,7 +217,7 @@ module Control_Logic( input[1:0] stage,
 endmodule
 
 
-//Verilog code for microcontroller
+
 
 module MicroController(input clk,rst
     );
